@@ -19,12 +19,16 @@ swNewFolder=0; % User chooses matFiles which folder to use that hold
 if swNewFolder==0 % date/time format YYYYMMDDTHHMMSS
   matFiles='\\boystown.org\btnrh\PHAL\ESS\Shape\matFiles_JASA';
 else
+    
 end
+fnLabelsMAT='';
 %fnLabelsMAT='A021_L_004_Dp25_20210719_20240930T165348'; % test ear A in _JASA folder
 %fnLabelsMAT='A026_R_002_Dp25_20210818_20241003T125347'; % test ear B
 %fnLabelsMAT='A024_L_003_Dp25_'; % test ear C, look in matFiles folder
 %fnLabelsMAT='A008_R_003_Dp25_20210521_20241003T133417'; % test ear D
- 
+if isempty(fnLabelsMAT)
+     [fnLabelsMAT,matFiles] = uigetfile(['..' filesep 'matFiles_JASA' filesep '*.mat'],'Select a .MAT file');
+end
 % imult=4 with Dp25 or 0.25 mm steps along canal axis in initial processing,
 % then steps 1 mm along canal axis in discrete Frenet frame.
 ifig=1;

@@ -16,9 +16,12 @@ Shape='\\boystown.org\btnrh\PHAL\ESS\Shape\'; % parent folder name for ESS Shape
 %   'A026_Ax_002R_20210818_1558_training.training_L3DS-19-0043_5.2.0.801_Mo1.STL';
 % STLfile=...     % test ear C
 %   'A024_Ax_003R_20210813_1520_training.training_L3DS-19-0043_5.2.0.801_Mo1.STL';
- STLfile=...     % test ear D
+STLfile=...     % test ear D
    'A008_Ax_003R_20210521_1537_training.training_L3DS-19-0043_5.2.0.801_Mo1.STL';
-
+answer = questdlg('Do you want to browse for STL file','FindSTL','Yes','No','Yes');
+if strcmp(answer,'Yes')
+    [STLfile,fileloc] = uigetfile(['..' filesep 'STLs_JASA' filesep '*.STL'],'Select an STL file');
+end
 SID=STLfile(1:4);
 if ~strcmp(SID(1),'M') && ~strcmp(SID(1),'C')
   Ear=STLfile(12);
