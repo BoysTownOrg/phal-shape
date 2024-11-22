@@ -178,8 +178,8 @@ waitfor(msgbox(...
   CreateStruct));
 
 cd(currentpath); %change back to initial path
-s=load('labels'); % temp file created by volumeSegmenter
-delete('labels.mat'); % % delete temp file, no need to keep these
+s=load('.\utilities\labels'); % temp file created by volumeSegmenter
+delete('.\utilities\labels.mat'); % % delete temp file, no need to keep these
 labels1=s.labels;
 mVxec=Vxec8&labels1; % return masked canal stalk after dialog box closed
 imV=find(mVxec); % points in ecSlice on wall of ear canal

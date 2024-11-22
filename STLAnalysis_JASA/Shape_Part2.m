@@ -17,7 +17,7 @@ swNewFolder=0; % User chooses matFiles which folder to use that hold
 % 0 for default folder with shared data files or 1 for user folder with
 % newly analyzed data files.
 if swNewFolder==0 % date/time format YYYYMMDDTHHMMSS
-  matFiles='\\boystown.org\btnrh\PHAL\ESS\Shape\matFiles_JASA';
+  matFiles=[ mfilename('fullpath') '\matFiles_JASA'];
 else
     
 end
@@ -43,7 +43,7 @@ swNewPlot=1; % 1 to replot major results from volume segmentation, or 0 to not r
 %if imult~=2
 %  fnShape=[fnShape,'_im',int2str(imult)];
 %end
-swSimpleTitle=0; % default ==0, ==1 to make plots for manuscript
+swSimpleTitle=1; % default ==0, ==1 to make plots for manuscript
 %keyboard
 
 %[ifig,hfShape]=ProcessCanal5_JASA(ifig,imult,fnM,swNewPlot,dirESS,...

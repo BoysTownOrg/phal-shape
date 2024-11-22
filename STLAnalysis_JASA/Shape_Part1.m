@@ -5,9 +5,10 @@
 
 close all, clear all
 % External user needs a Shape folder that is appropriately defined. Present
-% code is for testing at BTNRH.
-Shape='\\boystown.org\btnrh\PHAL\ESS\Shape\'; % parent folder name for ESS Shape
-
+% code is defined for use after Github download.
+Shape = [fileparts(mfilename('fullpath'))] ; % parent folder name for ESS Shape
+tmp = strfind(Shape, filesep);
+Shape = Shape(1:tmp(end)) ;
 % Shared code will have a browser to select STL file from folder STLs_JASA.
 % Below are individual files of test ears used in paper.
 %STLfile=...    % test ear A
@@ -34,13 +35,13 @@ end
 % from batchdo12, which is part 1 of the code that includes the manual step 
 % of volume segmentation) to matFiles_External and PDF_External,
 % respectively. 
-% For testing purposes at BTNRH, this batch file now allows writing to
+% For testing purposes, this batch file now allows writing to
 % matFiles_JASA and PDF_JASA, respectively, as these folders will be filled
 % with results from the 58 valid test ears.
 matFile=do12_JASA([Shape,'STLs_JASA\'],[Shape,'matFiles_JASA\'],...
   STLfile,SID,Ear);
 
-% Add switch to shared code to control whether to output PDT&MAT file results.
+% Add switch to shared code to control whether to output PDF&MAT file results.
 %keyboard % For testing, uncomment to stop running before writing out MAT and PDF files
 
 [~,fn]=fileparts(matFile);

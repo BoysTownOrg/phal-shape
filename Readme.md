@@ -1,0 +1,14 @@
+Contents of folders
+- EarResults_JASA
+- matFiles_JASA
+- PDF_JASA
+- STLAnalysis_JASA
+    - InstallPathTmp.m
+        - Run this script to temporarily set the Matlab path in order to run this.  The directory STLAnalysis_JASA should be your working directory as you begin.
+    - Shape_Part1.m
+        - code to analyze ear-canal shape based on reading a STL file from a digital scan of the outer ear and ear canal. See comment in code for additional details.
+            - At some point, the Matlab volumeSegmenter app will open. Please read comments in the file do12_JASA.m in the utilities folder beginning on line 110 for operating instructions
+    - Shape_Part2.m
+        - This script analyses the ear-canal shape functions including area function, eccentricity, curvature, and torsion. It reads a MAT file with individual ear shape data saved by Shape_Part1. See comment in code for additional details.
+- STLs_JASA
+    - STL (stereolithography) files output by the handheld scanner. These provide the raw data for further analysis. The relevant fields in the file A001_Ax_002R_20210414_1030_training.training_L3DS-19-0043_5.2.0.801_Mo1.stl are the first one (A001) which give the subject ID, and the third field (002R), the last letter of which indicates the ear.
