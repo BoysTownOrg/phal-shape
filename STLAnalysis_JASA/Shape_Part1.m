@@ -38,7 +38,7 @@ end
 % For testing purposes, this batch file now allows writing to
 % matFiles_JASA and PDF_JASA, respectively, as these folders will be filled
 % with results from the 58 valid test ears.
-matFile=do12_JASA([Shape,'STLs_JASA\'],[Shape,'matFiles_JASA\'],...
+matFile=do12_JASA([Shape,'STLs_JASA' filesep],[Shape,'matFiles_JASA' filesep],...
   STLfile,SID,Ear);
 
 % Add switch to shared code to control whether to output PDF&MAT file results.
