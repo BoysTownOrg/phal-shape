@@ -17,7 +17,7 @@ swNewFolder=0; % User chooses matFiles which folder to use that hold
 % 0 for default folder with shared data files or 1 for user folder with
 % newly analyzed data files.
 if swNewFolder==0 % date/time format YYYYMMDDTHHMMSS
-  matFiles=[ mfilename('fullpath') '\matFiles_JASA'];
+  matFiles=[ mfilename('fullpath') filesep 'matFiles_JASA'];
 else
     
 end
