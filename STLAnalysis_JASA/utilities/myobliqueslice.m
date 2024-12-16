@@ -1,5 +1,5 @@
 function [B, XData, YData, ZData] = myobliqueslice(varargin)
-% myobliqueslice, 3/4/22.  Modified MATLAB code because round was bombing
+% myobliqueslice. Modified original MATLAB code because round was bombing
 % on the round function now on line 189.  Added if...end clause on lines
 % 186-188 to fix the problem.
 %OBLIQUESLICE Extract an oblique slice from a 3-D volume.

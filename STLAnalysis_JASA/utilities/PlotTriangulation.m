@@ -8,7 +8,6 @@ hf1.Position=[200 150 624 480];
 trisurf(Triangulation,'EdgeColor','k');
 view(az,el);
 axis tight;
-%title('From file');
 colorbar;
 xlabel('x  (mm)');
 ylabel('y  (mm)');

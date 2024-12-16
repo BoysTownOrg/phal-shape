@@ -50,5 +50,5 @@ pdfFile=fullfile([Shape,'PDF_JASA'],fn); % new PDF folder
 hfAll=handle(sort(double(findobj(0,'type','figure'))));
 N=length(hfAll);
 for jj=1:N
-  OutputPlot(4,hfAll(jj),[],pdfFile,jj); % 4 for multi-page PDF file
+  OutputPlot_JASA(4,hfAll(jj),pdfFile,jj); % 4 for multi-page PDF file
 end

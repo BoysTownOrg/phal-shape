@@ -1,5 +1,5 @@
 function [T,N,B,Kappa,Torsion]=DiscreteFrenetFrame(ds,dsM,Npts)
-    % DiscreteFrenetFrame, 5/16/2021
+    % DiscreteFrenetFrame
     %   [T,N,B,Kappa,Torsion] = DiscreteFrenetFrame(ds,dsM,Npts);
     %   ds,  difference between adjacent points of discrete curve   
     %   dsM, norm of ds at each point
@@ -44,8 +44,6 @@ function [T,N,B,Kappa,Torsion]=DiscreteFrenetFrame(ds,dsM,Npts)
       end
     end
     N=cross(B,T,2);
-%    innerBT=diag(B*T'); innerBN=diag(B*N');
-%    [i0',T,B,innerBT,innerBN,vecnorm(B,2,2),vecnorm(N,2,2)] % debug
     i0=2:(Npts-3);
     im=1:(Npts-4); % redefined
     ip=3:(Npts-2); % same as zrngMain in calling function

@@ -1,5 +1,4 @@
 function fnM = do12_JASA(STLdir,dirMATdata,STLfile,SID,Ear)
-% do12_JASA, 9/30/24, is based on do12, 8/20/21.
 % This app is used to mask out ear scan parts except the canal stalk.
 
 mypath=fileparts(mfilename('fullpath'));
@@ -58,7 +57,6 @@ disp(['Iteration ',iis]);
   VoxelCalc7(iis,ifig,delZm,Triangulation,F,ss,az,el,zmmCut,iOver,iter);
 co=colororder;
 figure(ifig);
-% el1Max,ellipse model struct for locations at max z;
 % el1Min,ellipse model struct for locations at min z;
 [el1Max,el1Min]=DoEndSlices(iter,Vx(:,:,izMin:izMax),CmaxVoxel,...
   CminVoxel,ifig,co,ss,iis);
@@ -85,7 +83,6 @@ Bmat=[cosphi,sinphi,0;... % Product of 2 simple rotation matrices
   -costheta*sinphi,costheta*cosphi,sintheta;...
   sintheta*sinphi,-sintheta*cosphi,costheta];
 Vrot=transpose(Bmat*transpose(Triangulation.Points));
-%size(Triangulation.Points)
 Triangulation=triangulation(F,Vrot); % Update for next iteration
 % Rotate centers of min/max ellipses to find new z distance
 % for next iteration in voxels.
@@ -235,5 +232,3 @@ save(fnM,'mVxec','delZm','NStep','Nimx','Nimy','Xm','Ym','Zm','az','el',...
 % iteration to parameterize the canal image in terms of area distance
 % function and related variables. fnM is time-stamped and includes
 % SID, Ear, and voxel edge length delZm. 
-% 8/20/21. Include thetaDeg and phiDeg in saved results as part of
-% version=2, but need not rerun old data from version==2.

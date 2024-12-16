@@ -74,25 +74,16 @@ if ifig1>0 && ~isempty(a) % else not a fitted ellipse
   p=plot(new_ver_line(1,:),new_ver_line(2,:),'Color',ecolor);
   plot(new_horz_line(1,:),new_horz_line(2,:),'Color',ecolor);
   hp0=plot(X0,Y0,'Marker',mk,'MarkerFaceColor',ecolor);
-%  hp1=plot(round(X0),round(Y0),'Marker',mk,'Color','k');
   hp2=plot(ellip.Xmean,ellip.Ymean,'Marker','s','Color','k');
   plot([ellip.Xmean,X0],[ellip.Ymean,Y0],'k:');
   ecolor2=ecolor+0.1; % lighten color
   msize=3;
   plot(x,y,'LineStyle','none','Color',ecolor2,'Marker',mk2,'MarkerSize',msize);
   set(gca,'YDir','reverse'); % to align with obliqueslice figure
-%  xlabel('Col-Y');
-%  ylabel('Row-X reverse');
   xlabel('Abscissa');
   ylabel('Ordinate');
-  %hl=legend([hp0,hp2],{'Model mean','Data mean'},'Location','Northoutside');
- % set(hl,'Orientation','horizontal','AutoUpdate','off');
-%   lpos=get(hl,'Position');
-%   lpos=lpos+[0,0.10,0,0];
-%   set(hl,'Position',lpos);
   ellip.btxt=centerFit+R*ver_line/2; % for AAS
   ellip.atxt=centerFit+R*horz_line/2;
-%  ellip.hl=hl;
   ellip.hl=[];
 else
   ellip.btxt=[];

@@ -246,6 +246,7 @@ if swVerbose % enable for debugging shape code
   DebugShape(NStep,sEC,iterEC,T,B,N,Kappa1,Torsion1,areaEC,eccentricityEC);
 end
 hfShape=figure(ifig);
+%set(hfShape,'Position',[100,100,520,624],'DefaultLineMarkerSize',msD);
 set(hfShape,'Position',[100,100,560,640],'DefaultLineMarkerSize',msD);
 ListPlotResults_JASA(delZmAx,sCenterAll,areaEC,jjEntranceEC,sEntrancemm,...
   iElbowCenterAll,ssLength,ss,eccentricityEC,sCenter,Kappa1,Torsion1,...
@@ -270,6 +271,12 @@ else % default
   ppE=spline(sCenterAll,eccentricityEC);
   eccentricity0=ppval(ppE,sLattice(iLatticeRng));
   % find range of Kappa and Torsion on sLattice
+  % if (iEntrance0-2)<(iElbowLattice+2)
+  %   disp('Error Lattice 2--too few lattice points for curv. & torsion');
+  %   return
+  % else
+  %   iLatticeRngKT=(iElbowLattice+2):(iEntrance0);
+  % end
   if (iEntrance0-2)<(iElbowLattice+2)
     disp('Error Lattice 2');
     return
@@ -298,6 +305,7 @@ end
     ylabel('y');
     zlabel('z');
     daspect([1,1,1]);
+%    view(gca,-37.5,50);
     view(gca,-60,-15);
     drawnow;
 
@@ -402,7 +410,8 @@ end
       disp(sval);
     end
 
-    eCtr=3; 
+    %eCtr=sqrt(2); % mm,<2/27/2022
+    eCtr=3; % mm,>=2/27/2022
     eCnt=0;
     iCtr=find(errCtr(iterEC,:)>eCtr/delZm); % model/data ctrs too far apart
     iCnt=find(cntOpen(iterEC,:)>eCnt);
@@ -470,6 +479,8 @@ end
   function ListPlotResults_JASA(delZmAx,sCenterAll,areaEC,jjEntranceEC,...
       sEntrancemm,iElbowCenterAll,ssLength,ss,eccentricityEC,...
       sCenter,Kappa1,Torsion1,swSimpleTitle)
+%    ListPlotResults_JASA, 10/2/24, differs from the older ListPlotResults
+%    function by replacing old Kappa and Torsion by Kappa0 and Torsion0,
     %-----plot final results----------------------------------------------
     xlim=[-0.5*delZmAx,ceil(sCenterAll(end)+0.5*delZmAx)];
     subplot(4,1,1),

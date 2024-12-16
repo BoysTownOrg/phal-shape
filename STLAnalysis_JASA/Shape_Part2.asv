@@ -31,7 +31,18 @@ ifig=1;
 imult = 4;
 fnM=fullfile(matFiles,fnLabelsMAT);
 swNewPlot=1; % 1 to replot major results from volume segmentation, or 0 to not replot
+%dirESS='\\boystown.org\btnrh\PHAL\ESS';
+%SidEar=fnM(1:6);
+%fnShape=[fnM(1:6),'_Shp_',datestr(now,29)]; % only by date, not date and time
+%if imult~=2
+%  fnShape=[fnShape,'_im',int2str(imult)];
+%end
 swSimpleTitle=1; % default ==0, ==1 to make plots for manuscript
+%keyboard
 
-[ifig,hfShape]=ProcessCanal5_JASA(ifig,imult,fnM,swNewPlot,swSimpleTitle);
+%[ifig,hfShape]=ProcessCanal5_JASA(ifig,imult,fnM,swNewPlot,dirESS,...
+%  swSave,fnShape,swSimpleTitle); % swSave is 0 in shared code
+[ifig,hfShape]=ProcessCanal5_JASA(ifig,imult,fnM,swNewPlot,[],0,[],...
+  swSimpleTitle);
+
 

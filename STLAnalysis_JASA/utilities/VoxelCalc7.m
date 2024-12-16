@@ -45,7 +45,6 @@ Z = gridtrimesh(F,V,X,Y); % non-MATLAB X,Y from meshgrid
 NMAX=length(ZMAX);
 if NMAX>1
   ZMAX2=abs(ZMAX(2:NMAX)-ZMAX(1));
-  % ZMAX2=[0.3896,3.7423] for C004, L.  ZMAX2=4.59 for C001,L,Run 2
   a=find(ZMAX2>4.25,1,'first'); 
   if isempty(a)
     ZMAX=ZMAX(1);
@@ -68,18 +67,11 @@ end
 Pq=[X(IMAX),Y(IMAX),Z(IMAX)];
 ID=nearestNeighbor(TriangulationV,Pq); %V(ID) % display nearest vertices
 FA=vertexAttachments(TriangulationV,ID); % list of triangles
-%[~,iCzmax]=max(C(:,3));
-%Cmax=C(iCzmax,:); % Cmax is center of triangle in mm with maximum z
 [CFA1zmax,i1max]=max(C(FA{1},3)); % identify what should be ear-canal peak (in mm)
-%tangentEnd=-C(iCzmax,:)/norm(C(iCzmax,:)); % directly mainly in -z
 Cmax=C(FA{1}(i1max),:); % Cmax is center of ear-canal triangle in mm with maximum z
-%tangentEnd=-Cmax/norm(Cmax)  % directly mainly in -z
 CmaxVoxel=round(Cmax/delZm)-[0,0,1]; % transform distance (mm) to voxels
 if NMAX>1
   [CFA2zmax,i2max]=max(C(FA{2},3)); % identify secondary peak (in mm)
-%  FNmax=transpose(FN(iCzmax,:)); % old
-%  FNmax=transpose(FN(i1max,:)); % new, but not used
-%  izC=find(C(:,3)>CFA2zmax); % uses extrema2, but not elsewhere in code
   Cmin=C(FA{2}(i2max),:);
   CminVoxel=round(Cmin/delZm)+[0,0,1]; % transform distance (mm) to voxels (1 above min)
   figure(hf1);
@@ -92,7 +84,6 @@ else
   CminVoxel(3)=CminVoxel(3)-round(zmmCut/delZm); % zmmCut mm down if only 1 peak
 end
 izMin=CminVoxel(3);
-%izMin=min(CminVoxel(3),CmaxVoxel(3)); % min may not be CminVoxel for child mold
 % Cmin2Voxel corresponds to voxel coordinates of secondary peak if present
 vxl=1:Nvxl; % in voxels
 Nvxl3D=repmat(Nvxl,1,3);
@@ -137,7 +128,6 @@ if iter==1
     ifig=Plot12(Xm,Ym,Zm,Vxec,ss,az,el,ifig);  % for debugging
   end
 end
-%Vxec=Vx(:,:,1:izMax);
 end
 
 
