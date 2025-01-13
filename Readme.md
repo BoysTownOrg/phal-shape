@@ -1,5 +1,4 @@
 Contents of folders
-- EarResults_JASA
 - matFiles_JASA
 - PDF_JASA
 - STLAnalysis_JASA: to run the code in this folder, add it and it's subfolders to the Matlab path.
