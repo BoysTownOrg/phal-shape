@@ -18,7 +18,7 @@ The input to the code is a Surface Triangle Language (STL) file that digitally e
 
       An intermediate output is also stored as a _labels.mat_ file, which is saved by the _volumeSegmenter_ app in its final step.
                   
-    - The script _Shape_Part2.m_ for Part 2 of the code requires the Curve Fitting Toolbox from the MathWorks. The input to Part 2 is one of the MAT files in the folder _matFiles_JASA_. Part 2 analyses and plots ear-canal shape functions including the area function and ellipse eccentricity of each 2D slice along the centerline, and the curvature and torsion of the centerline curved in 3D.  See comments in code for additional details.
+    - The script _Shape_Part2.m_ for Part 2 of the code requires the Image Processing Toolkit and the Curve Fitting Toolbox from the MathWorks. The input to Part 2 is one of the MAT files in the folder _matFiles_JASA_. Part 2 analyses and plots ear-canal shape functions including the area function and ellipse eccentricity of each 2D slice along the centerline, and the curvature and torsion of the centerline curved in 3D.  See comments in code for additional details.
 
 - _Subfolders of MATLAB code_: These subfolders from external sites contain MATLAB code used in Part 1 or Part 2 of the above code. These subfolders are: _extrema_ and _gridtrimesh_ with their corresponding license files, and  _gridtrimesh_, which was obtained from the MATLAB Central file exchange (https://www.mathworks.com/matlabcentral/fileexchange/14646-gridtrimesh).  
 
